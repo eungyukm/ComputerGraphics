@@ -89,7 +89,74 @@
 
 
 
-- 데모 
+- Light Pre pass 
+
+![image-20230126222736262](../images/Deferred Renderer/image-20230126222736262.png)
+
+
+
+- G버퍼의 가장 큰 취약점은 메모리 대역폭
+
+![image-20230126222834852](../images/Deferred Renderer/image-20230126222834852.png)
+
+
+
+- Inferred Lighting
+
+  대여폭을 줄여보자 하는 몸부림
+
+  G버퍼의 사이즈를 줄여서 만드는 내용
+
+  
+
+- G버퍼 (MRT)의 가장 큰 문제는 대여폭의 문제가 있습니다.
+
+- 모바일에서는 아래와 같이 대여폭이 특히 문제가 됩니다.
+
+  ![image-20230126223244550](../images/Deferred Renderer/image-20230126223244550.png)
+
+
+
+- Tile-based GPU(Tile Based Deferred) Rendering
+
+- GPU가 타일 버퍼를 가지고 있어서 Tile 안에서 렌더링하고 전달합니다.
+
+  ![image-20230126223600726](../images/Deferred Renderer/image-20230126223600726.png)
+
+
+
+![image-20230126224001943](../images/Deferred Renderer/image-20230126224001943.png)
+
+
+
+
+
+Multi pass Rendering
+
+- 그래픽 API에서 Multi pass Rendering을 적용합니다.
+- Render Path를 타일별로 작동하게 만들어 줄 수 있습니다.
+
+![image-20230126224134589](../images/Deferred Renderer/image-20230126224134589.png)
+
+
+
+- Native RenderPass를 켜줘야 TBR을 사용할 수 있습니다.
+
+![image-20230126224642887](../images/Deferred Renderer/image-20230126224642887.png)
+
+
+
+URP의 Deferred
+
+- 모바일 GPU 최적화 작업
+
+- OpenGL ES 미지원 (fallback : Forward)
+
+- Forward pass : Complex Lit, Transparent 등
+
+- Deferred는 MSAA 불가
+
+
 
 
 
